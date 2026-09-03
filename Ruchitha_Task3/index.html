@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter Tool</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="converter-card">
+    <header class="converter-header">
+      <h1>Temperature Converter</h1>
+      <p>Convert values between Celsius, Fahrenheit, and Kelvin</p>
+    </header>
+
+    <form id="tempForm" onsubmit="return false;">
+      <!-- Input Value & Unit -->
+      <div class="input-group">
+        <div class="field">
+          <label for="tempInput">Degrees</label>
+          <input 
+            type="number" 
+            id="tempInput" 
+            step="any" 
+            placeholder="Enter temperature..." 
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="unitSelect">Unit</label>
+          <select id="unitSelect">
+            <option value="celsius">Celsius (°C)</option>
+            <option value="fahrenheit">Fahrenheit (°F)</option>
+            <option value="kelvin">Kelvin (K)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <button type="button" id="convertBtn" class="btn">Convert Units</button>
+
+      <!-- Error / Validation Message Display -->
+      <div id="errorMessage" class="error-msg" aria-live="polite"></div>
+    </form>
+
+    <!-- Results Display -->
+    <section class="results-container" id="resultsContainer">
+      <h2>Converted Results</h2>
+      <div class="results-grid">
+        <div class="result-box">
+          <span class="result-label">Celsius</span>
+          <span class="result-value" id="celsiusResult">-- °C</span>
+        </div>
+
+        <div class="result-box">
+          <span class="result-label">Fahrenheit</span>
+          <span class="result-value" id="fahrenheitResult">-- °F</span>
+        </div>
+
+        <div class="result-box">
+          <span class="result-label">Kelvin</span>
+          <span class="result-value" id="kelvinResult">-- K</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="card-footer">
+      <p>OIBSIP Internship Task 3 — Developed by Ruchitha Muniraj</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
