@@ -1,1 +1,394 @@
+/* ==========================================================================
+   1. CSS Reset & Variables
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --bg-main: #ffffff;
+  --bg-alt: #f8fafc;
+  --border-color: #e2e8f0;
+  --white: #ffffff;
+  
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. Typography & Buttons
+   ========================================================================== */
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--text-main);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #334155;
+}
+
+.btn-outline {
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. Sticky Navigation Header
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   4. Hero Section
+   ========================================================================== */
+.hero {
+  padding: 6rem 1.5rem 4rem;
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   5. General Sections & Grids
+   ========================================================================== */
+.section {
+  padding: 5rem 1.5rem;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards */
+.card {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.about-list li {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-visual {
+  height: 250px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+
+.visual-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  padding: 2rem;
+  background: var(--bg-alt);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.author-name {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.author-role {
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   6. Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--text-main);
+  color: var(--white);
+  padding: 4rem 1.5rem 2rem;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer p {
+  color: #94a3b8;
+}
+
+.footer-logo {
+  color: var(--white);
+}
+
+.footer h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #94a3b8;
+}
+
+.social-icons a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #334155;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   7. Responsive Mobile Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none; /* Keeps top header minimal on small screens */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
